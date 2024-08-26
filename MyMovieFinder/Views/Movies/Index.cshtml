@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MyMovieFinder.Models.Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<div style="text-align: center; margin-bottom: 30px;">
+    <h1 style="font-size: 2.5em;">🎥 Movie List 🍿</h1>
+</div>
+
+<div style="text-align: center; margin-bottom: 20px;">
+    <form asp-action="Index" method="get" style="display: inline-block;">
+        <input type="text" name="searchString" placeholder="Search for a movie..."
+               style="padding: 10px; width: 300px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc;" />
+        <button type="submit" style="padding: 10px 20px; font-size: 1em; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            🔍 Search
+        </button>
+    </form>
+</div>
+
+<table class="table table-striped" style="width: 80%; margin: 0 auto; border-spacing: 0 15px;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th style="padding: 15px;">Movie Name</th>
+            <th style="padding: 15px;">Genre</th>
+            <th style="padding: 15px;">Rating</th>
+            <th style="padding: 15px;">Director</th>
+            <th style="padding: 15px;">Actor</th>
+            <th style="padding: 15px;">Year</th>
+            <th style="padding: 15px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="padding: 15px;">@item.MovieName</td>
+                <td style="padding: 15px;">@item.Genre</td>
+                <td style="padding: 15px;">@item.Rating</td>
+                <td style="padding: 15px;">@item.Director</td>
+                <td style="padding: 15px;">@item.Actor</td>
+                <td style="padding: 15px;">@item.Year</td>
+                <td style="padding: 15px;">
+                    <a asp-action="Details" asp-route-id="@item.Id" style="color: #007bff;">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
