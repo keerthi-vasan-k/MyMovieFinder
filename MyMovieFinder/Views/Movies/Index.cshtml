@@ -15,9 +15,11 @@
         <button type="submit" style="padding: 10px 20px; font-size: 1em; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
             🔍 Search
         </button>
+        <a asp-action="Create" style="padding: 10px 20px; text-decoration: none;font-size: 1em; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            ➕New Movie
+        </a>
     </form>
 </div>
-
 <table class="table table-striped" style="width: 80%; margin: 0 auto; border-spacing: 0 15px;">
     <thead>
         <tr style="background-color: #f2f2f2;">
@@ -41,7 +43,7 @@
                 <td style="padding: 15px;">@item.Actor</td>
                 <td style="padding: 15px;">@item.Year</td>
                 <td style="padding: 15px;">
-                    <a asp-action="Details" asp-route-id="@item.Id" style="color: #007bff;">View</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" style="color: #007bff; text-decoration: none; color:black;">🪟</a>
                 </td>
             </tr>
         }
